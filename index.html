@@ -1583,13 +1583,21 @@
           </div>
         </div>
         <div class="adv-card" style="background: #fff;">
-          <video controls playsinline preload="metadata" style="width: 100%; display: block; background: #000;">
-            <source src="PARTYTOMER.mp4" type="video/mp4">
-            הדפדפן שלך לא תומך בתגית וידאו
-          </video>
+          <div class="video-thumb" onclick="openVideoModal()" style="position: relative; width: 100%; cursor: pointer; background: linear-gradient(135deg, #1a1a1a 0%, #3a2a1a 50%, #1a1a1a 100%); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(200,160,80,0.15) 0%, transparent 70%);"></div>
+            <div style="position: relative; z-index: 2; text-align: center; padding: 20px;">
+              <div style="width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,0.95); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 32px rgba(0,0,0,0.5); margin-bottom: 20px; transition: transform 0.2s;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="#1a1a1a" style="margin-right: -4px;">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div style="color: #fff; font-weight: 800; font-size: 22px; margin-bottom: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">🎬 לחץ כדי לצפות</div>
+              <div style="color: #d4b575; font-size: 14px; font-weight: 600;">המסיבה הבייתית • וידאו בלעדי</div>
+            </div>
+          </div>
           <div class="adv-card-body">
             <h4>וגם בבית זה על הכיפאק 🎉</h4>
-            <p>כי המסיבות הכי טובות הן אלו שאתה מארח. תלחץ Play.</p>
+            <p>כי המסיבות הכי טובות הן אלו שאתה מארח.</p>
           </div>
         </div>
         
