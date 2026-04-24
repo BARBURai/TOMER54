@@ -1963,5 +1963,54 @@
     </div>
     </div>
   </div>
+
+<!-- Video Modal -->
+<div id="videoModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.95); z-index:9999; align-items:center; justify-content:center;">
+  <button id="closeVideoBtn" aria-label="סגור" style="position:absolute; top:20px; left:20px; width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.2); border:2px solid #fff; color:#fff; font-size:24px; cursor:pointer; z-index:10000; display:flex; align-items:center; justify-content:center; padding:0;">✕</button>
+  <video id="modalVideo" controls playsinline style="max-width:95%; max-height:90vh;">
+    <source src="PARTYTOMER.mp4" type="video/mp4">
+    הדפדפן שלך לא תומך בווידאו
+  </video>
+</div>
+<script>
+(function(){
+  var thumb = document.querySelector('.video-thumb');
+  var modal = document.getElementById('videoModal');
+  var video = document.getElementById('modalVideo');
+  var closeBtn = document.getElementById('closeVideoBtn');
+  
+  function openModal(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    try { video.play(); } catch(err) {}
+  }
+  function closeModal(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    try { video.pause(); video.currentTime = 0; } catch(err) {}
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  
+  if (thumb) {
+    thumb.addEventListener('click', openModal);
+    thumb.addEventListener('touchend', openModal);
+    thumb.style.cursor = 'pointer';
+    thumb.removeAttribute('onclick');
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener('touchend', closeModal);
+  }
+  if (modal) {
+    modal.addEventListener('click', function(e){
+      if (e.target === modal) closeModal(e);
+    });
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
 </body>
 </html>
